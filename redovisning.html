@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang=sv>
+    <head>
+        <meta charset=utf-8>
+        <title>Redovisning av kursmoment i kursen webgl</title>
+        <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Noto+Serif" rel=stylesheet>
+        <link rel=stylesheet href=style/style.css>
+        <link rel=stylesheet href=style/redovisningStyle.css>
+    </head>
+    <body>
+        <header>
+            <nav class=nav-base>
+                <a href=index.html class=nav-link>Me</a>
+                <a href=redovisning.html class="nav-link selected">Redovisning</a>
+                <a href=kmom01.html class=nav-link>Kmom01</a>
+                <a href=kmom02.html class=nav-link>Kmom02</a>
+                <a href=kmom03.html class=nav-link>Kmom03</a>
+                <a href=kmom05.html class=nav-link>Kmom04-05</a>
+            </nav>
+        </header>
+        <article>
+            <div class=article-div>
+                <header>
+                    <h1>Redovisning av kursmoment i kursen webgl</h1>
+                </header>
+                <nav class=nav-base>
+                    <a class=review-link data-index=0 style=cursor:pointer>kmom01</a>
+                    <a class=review-link data-index=1 style=cursor:pointer>kmom02</a>
+                    <a class=review-link data-index=2 style=cursor:pointer>Kmom03</a>
+                    <a class=review-link data-index=3 style=cursor:pointer>Kmom04/05</a>
+                </nav>
+                <section id=review-text></section>
+                <section class=hidden-text>
+                    <section>
+                        <h2>Kmom01</h2>
+                        <strong>Vilken utvecklingsmiljö sitter du på?</strong>
+                        <p>Jag använder en windows dator och har installerat cygwin för att använda kunna linux kommandon och jag programmerar i Visual Studio Code.</p>
+                        <strong>Hur väl känner du dig hemma i webbtekniker som JavaScript, HTML och CSS?</strong>
+                        <p>Jag har använt JavaScript, CSS och HTML förut, men jag kan inte säga att jag känner mig säker att använde det. Det ända som jag känner mig hyfsat säker på är JavaScript då jag har programmerat några små webbapplikationer förut med det. Samt att syntaxen på JavaScript påminner om de andra språken som jag har arbetat med så som Java och C#.</p>
+                        <strong>Vilket är ditt första intryck av programmeringsspråket JavaScript, kan du relatera till något annat programmeringsspråk?</strong>
+                        <p>Jag tycker det är intressant, koden värkar flyta på bra och enkelt att komma in i. Som jag skrev i förra frågan så påminner syntaxen mycket om språk som Java och C#. Men annorlunda då det är ett språk som har inbyggda funktioner för att interagera med webbsidan. </p>
+                        <strong>Hur väl känner du dig hemma i 3D programmering med OpenGL, WebGL eller motsvarande?</strong>
+                        <p>När det kommer till 3D programmering så känner jag mig säker på det jag gör. Jag använder OpenGL mycket under min fritid.</p>
+                        <strong>Vad tycker du om kursboken så här långt?</strong>
+                        <p>Jag tycker den är enkel att följa och bra på att förklara hur allt fungerar. Den kommer vara ett bra hjälpmedel för de kommande uppgifterna.</p>
+                        <strong>Berätta lite om hur du löste uppgiften med punkterna. Var det något som var svårt, lurigt eller utmanande?</strong>
+                        <p>Jag löste uppgiften genom att lägga till ett nytt attribut för punkterna, detta gjorde så att jag kunde skicka olika storlekar för varje punkt. I mitt fall var det inte något som var utmanande när det kommer till WebGL, men det som jag störde mig lite på var hoisting i JavaScript då de gjorde att jag inte kunde använda samma variablnamn hela tiden, om jag inte valde att undivka att skapa nya variabler.</p>
+                    </section>
+                    <section>
+                        <h2>Kmom02</h2>
+                        <strong>Hur är din syn på programmeringsspråket JavaScript så här långt? jämför med andra programmeringsspråk som du känner till.</strong>
+                        <p>Så här långt så gillar jag det, det påminner lite om Python genom att det finns många sätt för att manipulera datan. Jag gillar också sättet att använda listeners och funktioner i språket.</p>
+                        <strong>Hur känner du inför WebGL kontra de 3D-tekniker du är van vid?</strong>
+                        <p>Hittils ser jag ingen större skillnad, då vi har bara ritat ut trianglar.</p>
+                        <strong>Gjorde du något speciellt med kodstrukturen i din sandbox?</strong>
+                        <p>Jag flyttade kod till funktioner och flyttade shaderkoden till html-filen. För att göra det lättare att läsa koden.</p>
+                        <strong>Gjorde du något speciellt med triangel-uppgiften?</strong>
+                        <p>Inte direkt, då jag gjorde det som stod i uppgiften samt extrauppgiften, där man skulle lägga till ett sätt att slumpa fram ett visst antal trianglar genom att skriva in hur många i ett text-flält. För att göra kodstrukturen enklare så gjorde jag en funktion för att lägga till slumpvalda tiranglar och sedan använda den för både att slumpa en och en och extrauppgiften.</p>
+                        <strong>Vilka resurser i kursmaterialet finner du mest nyttiga för att lösa uppgifterna? Eller hittar du egna resurser på nätet, isåfall vilka och vad tycker du om dem?</strong>
+                        <p>De mest nyttiga för mig är MDN, men jag använder också W3School och stackoverflow.</p>
+                    </section>
+                    <section>
+                        <h2>Kmom03</h2>
+                        <strong>Gjorde du några särskilda iakttagelser i bokens kapitel 5, 6 och 7 som du vill nämna?</strong>
+                        <p>Inte direkt. Mycket som nämns i boken var väldigt lika när jag arbetade med OpenGL i 3D Programmerings kursen.</p>
+                        <strong>Hur gick det att utföra labbarna med arrayer och objekt?</strong>
+                        <p>Det gick bra, men var repetitivt då många av uppgifterna var lik de föregående. Objekt påminner mycket om dictionary i Python så det var enkelt för mig att komma in i tänket.</p>
+                        <strong>Berätta kort om hur du löste uppgiften om kuber och texturer?</strong>
+                        <p>Jag hade olika objekt för att enklare kunna lägga till mer geometri, shaders och texturer. Ett objekt som är en modell och innehåller en lista av vertiser och en för indexering. Där varje vertis innehåller en positionen och uv-koordinater. Modellen har en eller flera textur-objekt kopplade till sig. Texturobjektet har funktioner som laddar in en bild och skickar den till GPU:n. När modellen och texturen(a) är skapad så använder jag ett shader objekt för att uppdatera datan till fragment och vertex shaderna. Shader objektet har funktioner som gör det enkelt att lägga till attribut och uniforms, samt att ändra data på dem. </p>
+                        <strong>Känner du att du har en god bas i WebGL? Vad känner du att du saknar?</strong>
+                        <p>Ja det gör jag. Funktionerna fungerar på liknande sätt som i den versionen av OpenGL som jag håller på med, så det blir som att jag tränar upp mina kunskaper av OpenGL genom WebGL. Jag kan inte komma på något jag känner att jag saknar, då mycket av de jag gör har jag redan gjort i OpenGL tidigare.</p>
+                        <strong>Var det något som var klurigt, utmanande eller tog extra mycket tid?</strong>
+                        <p>Texturerna, genom att det var svårt att få dem att fungera korrekt. Det som gjorde det jobbigt var att bilen inte behöver ha laddats in när man startar applikation. Jag hade varningar som varnade för att den inte kunde läsa data från texutre-unit 0 osv. Detta fick jag för att bilden laddades in senare än när den skulle renderas, men det var svårt att hitta problemet för att jag såg ingen skillnad på scenen, så det tog längre tid än vad jag hade räknat med.</p>
+                    </section>
+                    <section>
+                        <h2>Kmom04-05</h2>
+                        <h2>Förberedelser och implementation</h2>
+                        <strong>Beskriv hur du ingenjörsmässigt gick tillväga för att inledningsvis undersöka problemställningen.</strong>
+                        <p>
+                            Innan programmeringen startade, behövdes definitionen av ’Metaballs’ klargöras. Detta skedde med hjälp av Wikipedia<a href=#link3>[3]</a>
+                            samt andra diverse källor<a href=#link2>[2]</a>
+                            . När definitionen var klargjord, valdes metoden för att rendera metabollarna och därefter startade implementationen genom programmering.
+                        </p>
+                        <strong>Vilka källor använde du? Värdera och specificera dina referenser och källor på ett akademiskt sätt.</strong>
+                        <p>Jag använde Wikipedia för att få en överblick över vad metabollarna och SDF funktioner var och hur de fungerade. Även då Wikipedia inte är den bästa av referenser när det kommer till källkritik, är den en bra referens till att få en överblick av algoritmerna och konceptet ’Metaball’.</p>
+                        <p>Stephen Whitmores artikel var en av referenserna till Wikipedias länk. Samt att Whitmore har arbetat med datorgrafiska applikationer omkring 20 år. Därför var den artikeln intressant.</p>
+                        <p>Jamie Wongs artikel var till stor hjälp för att förstå hur SDF funktioner kunde användas tillsammans med Ray Marching. Wong har liksom Stephen Whitmore arbetat med datorgrafiska applikationer en längre tid och arbetar nu med att tillverka designverktyg för Figma. Han var tidigare en ingenjör i Khan Academy.</p>
+                        <p>Lwjgl3-wiki användes för att förstå hur kamerans vektorer kunde transformeras till ’World Space’. Lwjgl3-wiki:n är den officiella dokumentationen till Java biblioteket LWJGL, som används för att ge tillgång till API:er som OpenGL, OpenCL och OpenAL.</p>
+                        <strong>Beskriv hur din första ansats till att lösa problemet.</strong>
+                        <p>Först valdes Marching Cubes algoritmen för att genomföra projektet på grund av att det var något jag inte hade gjort tidigare. Till skillnad mot Raytracing som jag gjorde i kursen 3D-programmering.</p>
+                        <strong>Förändrades din ansats under projektets gång? Berätta.</strong>
+                        <p>
+                            Jag upptäckte att det var svårt att öka antalet metabollar med Marching Cubes implementationen samt att jag hade svårt att få till normalerna korrekt. Detta lede till att jag bytte till en Raytraching implementation istället, som senare ändrades till en Ray Marching med SDF implementation <a href=#link5>[5]</a>
+                            .
+                        </p>
+                        <h2>Teknisk lösning</h2>
+                        <strong>Beskriv din tekniska lösning så att en ingenjörskollega kan lösa problemet på samma sätt som du gjorde.</strong>
+                        <p>
+                            Först skapas en rektangel som täcker upp skärmen samt en kamera som har information om sin position, orientering och projektion. Därefter skapas vektorerna (-1,-1), (-1, 1), (1, -1) och (1, 1) som transformeras med hjälp av ’view’ och projektions matrisens invers, som kameran har, för att transformera vektorerna från NDC rummet (Normalized Device Cooridinate) till ’World’ rummet. Som sedan divideras med dess w-komponent, för att kompensera för perspektivet, samt subtraherar kamerans position från vektorn för att flytta dem till origo <a href=#link1>[1]</a>
+                            . Vektorerna skickas sedan till GPU:n som använder dem till att interpolera mellan varandra och därefter skapar en normaliserad vektor vars riktning går igenom varje pixel och ut i världen. Se <i>figur 1</i>
+                            .
+                        </p>
+                        <figure>
+                            <img src=http://www.student.bth.se/~joam16/dbwebb-kurser/webgl/me/portfolio/kmom05/Pictures/RayInterpolation.png alt="Visar vektorerna som går från origo till rektangeln."/>
+                            <figcaption>
+                                <i>Figur 1.</i>
+                                Visar vektorerna som går från origo till rektangeln.
+                            </figcaption>
+                        </figure>
+                        <p>
+                            Ray Marching algoritmen går ut på att vandra en viss längd, längs varje stråle som skjuts ut i världen, tills strålen träffar något objekt. För att snabba på prestandan används Ray Marching bara när strålen har träffat den närmsta sfären som omringar metabollarna, se <i>figur 2</i>
+                            .
+                        </p>
+                        <figure>
+                            <img src=http://www.student.bth.se/~joam16/dbwebb-kurser/webgl/me/portfolio/kmom05/Pictures/RaytracingBoundingSphere.png alt="Raytracing används innan strålen träffar den sfär som omringar metabollen.">
+                            <figcaption>
+                                <i>Figur 2.</i>
+                                Raytracing används innan strålen träffar den sfär som omringar metabollen.
+                            </figcaption>
+                        </figure>
+                        <p>
+                            När strålen har nått den omringande sfären byts algoritmen till Ray Marching tillsammans med SDF <a href=#link6>[6]</a>
+                            . SDF används för att gå fram på strålen lika långt som distansen till den närmsta punkten i världen. Detta görs för att undvika ytterligare kalkylationer i början av färden, se <i>figur 3</i>
+                            .
+                        </p>
+                        <figure>
+                            <img src=http://www.student.bth.se/~joam16/dbwebb-kurser/webgl/me/portfolio/kmom05/Pictures/RayMarching.png alt="Visar hur strålen färdas under Ray Marching med SDF, där metabollen har sin egen SDF funktion.">
+                            <figcaption>
+                                <i>Figur 3.</i>
+                                Visar hur strålen färdas under Ray Marching med SDF, där metabollen har sin egen SDF funktion.
+                            </figcaption>
+                        </figure>
+                        <p>
+                            En metaboll i Shadern är en SDF funktion som returnerar distansen till närmsta punkt. Denna distans är positiv om strålen är utanför objektet, noll om den är på ytan av objektet och negativ innanför objektet. När distansen är noll eller negativ slutar strålen att vandra och returnerar den totala distansen till ytan samt färgen på den punkten. Den slutliga färgen beräknas med Phong modellen <a href=#link4>[4]</a>
+                            för att få ljuset integrerat.
+                        </p>
+                        <strong>Kritisera din tekniska lösning och framhäv dess brister.</strong>
+                        <p>Även då Raytracing används för att börja Ray Marching så nära metabollen som möjligt, gör den inte det när den åker till nästa sfär. Då används endast Ray Marching. Detta gör att Shadern behöver kalkylera mera om flera sfärer är bakom varandra samt att strålen missar metabollarna i dem. På så sätt kommer strålen att använda Ray Marching hela vägen tills den har nått sin maximala distans.</p>
+                        <strong>Övervägde du alternativa lösningar? Varför förkastades dessa?</strong>
+                        <p>Jag började med att implementera Marching Cubes, som jag gjorde klart till en viss del, men valde att byta till Raytracing, då jag upptäckte att prestandan var väldigt låg vid högre upplösning (fler trianglar). Detta gjorde att jag inte kunde ha lika många metabollar som jag hade önskat. I flera veckor satt jag för att försöka öka prestandan, men valde till sist Raytracing.</p>
+                        <p>När jag väl kom förbi Raytracing upptäckte jag Ray Marching som gjorde det lättare att implementera ’Metaballs’. Sedan kom jag att tänka på SDF konceptet som fick mig att använda dem för att vandra längs strålen.</p>
+                        <p>Jag hade också planer på att implementera Dividing Cubes men undvek det för att prestandan skulle ha blivit för låg, som skulle leda till hackiga animationer.</p>
+                        <strong>Berätta om någon av de möjligheter som finns för att förbättra din lösning. Tänk att det finns begränsade resurser av tid, så förhåll dig till det och ta bara de möjligheter som kan utföras med begränsad insats av tid och/eller extra kunskap.</strong>
+                        <p>För att göra så att Shadern undviker att gå längs strålen när den befinner sig mellan sfärer, kunde jag ha löst det genom att skapa en lista som innehåller distanserna till varje svär och sorterade distanserna från den kortaste till den längsta. Listan kunde då användas till att hoppa till nästa sfär. Jag försökte göra denna implementation men misslyckades då begränsningarna som GLES 1.0 har med konstanta loopar och indexering gjorde att jag inte lyckades hitta en lösning på problemet.</p>
+                        <h2>Visuell presentation</h2>
+                        <strong>Beskriv hur du valde att leverera och visuellt presentera ditt projekt.</strong>
+                        <p>Raytracing är i grunden visuellt bra då man får fram kontinuerliga former istället för till exempel Marching Cubes där man tydligt kan se trianglarna på kanterna av kroppen. Detta lede till att Raytraching var ett bra alternativ för att få fram en visuellt tilltalande bild.</p>
+                        <p>Den tidigare algoritmen som användes (Marching Cubes) lades också till som ett alternativt sätt att visualisera metabollarna.</p>
+                        <strong>Berätta hur du tänkte inför frågan “hur skall jag nu på bästa sätt visuellt presentera min lösning”?</strong>
+                        <p>Raymarching med SDF valdes delvis för att det var spännande att testa, men också för att SDF gjorde att inga höjdkurvor uppstod när ljuset applicerades.</p>
+                        <strong>Fick du göra prioriteringar eller nådde du din fulla ambitionsnivå med den visuella presentationen? Berätta.</strong>
+                        <p>Man kan se det som att övergången från Marching Cubes till Raytraching, Ray Marching och slutligen till Ray Marching kombinerat med SDF funktioner var en typ av prioritering som gjordes för att öka kvalitén på animationen och bilden. I detta fall tycker jag att jag nådde min ambition då det gick bättre att implementera ljus och öka antalet metabollar.</p>
+                        <h2>Redovisning</h2>
+                        <p>Projektet var lätt i teoridelen samt att få metabollarna att renderas. Men svårt att få ökad prestanda samt att öka antalet metabollar som kunde ritas ut samtidigt. Det uppstod ett antal problem då WebGL använder sig av GLES 1.0 vilket har en begränsning att alla loopar behöver använda sig av konstanta värden liksom indexering av listor. Detta gjorde att vissa algoritmer blev svårare att implementera.</p>
+                        <p>Tiden det tog att genomföra arbetet var längre än förväntat då första implementationen av metabollarna var med hjälp av Marching Cubes algoritmen, men senare skiftades implementationen till Raytracing, mer specifikt Ray Marching med Signed Distance Fields (SDF).</p>
+                        <p>Kursen som helhet tycker jag var väldigt rolig och lärorik. Det var intressant att få testa att implementera metabollarna samt att vi hade fritt val när det kom till implementationen. Materialet till kursen tycker jag är en bra hjälp till de som inte har arbetat med OpenGL eller WebGL förut. Antalet tillfällen som man kunde få hjälp av lärare var också bra, både handledningstillfället på torsdagar samt forumen. Även då jag själv inte tog till vara på dem så var det bra att de fanns om jag skulle köra fast. Översiktligt ser jag inga förbättringar som behövs. Jag skulle gärna kunna rekommendera denna kurs till andra. Om jag skulle sätta ett betyg på kursen mellan ett till tio, där tio är bäst, sätter jag det som en klar tia.</p>
+                        <h2>Referenser</h2>
+                        <p>
+                            <strong>1</strong>
+                            . Github, Lwjgl3-wiki. 2.6.1 Ray tracing with OpenGL Compute Shaders (Part 1). 2017. <a id=link1 href=https://github.com/LWJGL/lwjgl3-wiki/wiki/2.6.1.-Ray-tracing-with-OpenGL-Compute-Shaders-%28Part-I%29#the-scene-description>https://github.com/LWJGL/lwjgl3-wiki/wiki/2.6.1.-Ray-tracing-with-OpenGL-Compute-Shaders-%28Part-I%29#the-scene-description</a>
+                            (Hämtad 2018-12-17)
+                        </p>
+                        <p>
+                            <strong>2</strong>
+                            . Whitmore, Stephen. Exploring Metaballs and Isosurfaces in 2D. Gamedev.net. 2008-9-3. <a id=link2 href=https://www.gamedev.net/articles/programming/graphics/exploring-metaballs-and-isosurfaces-in-2d-r2556>https://www.gamedev.net/articles/programming/graphics/exploring-metaballs-and-isosurfaces-in-2d-r2556</a>
+                            (Hämtad 2018-11-27)
+                        </p>
+                        <p>
+                            <strong>3</strong>
+                            . Wikipedia. Metaballs. 2018.<a id=link3 href=https://en.wikipedia.org/wiki/Metaballs>https://en.wikipedia.org/wiki/Metaballs</a>
+                            (Hämtad 2018-11-27)
+                        </p>
+                        <p>
+                            <strong>4</strong>
+                            . Wikipedia. Phong reflection model. 2018. <a id=link4 href=https://en.wikipedia.org/wiki/Phong_reflection_model>https://en.wikipedia.org/wiki/Phong_reflection_model</a>
+                            (Hämtad 20018-12-17)
+                        </p>
+                        <p>
+                            <strong>5</strong>
+                            . Wikipedia. Signed distance fields. 2018. <a id=link5 href=https://en.wikipedia.org/wiki/Signed_distance_function>https://en.wikipedia.org/wiki/Signed_distance_function</a>
+                            (Hämtad 2018-12-15)
+                        </p>
+                        <p>
+                            <strong>6</strong>
+                            . Wong, Jamie. Ray Marching and Signed Distance Functions. Jamie-wong. 2016-7-15. <a id=link6 href=http://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/#constructive-solid-geometry>http://jamie-wong.com/2016/07/15/ray-marching-signed-distance-functions/#constructive-solid-geometry</a>
+                            (Hämtad 2018-12-17)
+                        </p>
+                    </section>
+                </section>
+            </div>
+        </article>
+        <script type=text/javascript src=js/redovisning.js></script>
+    </body>
+</html>

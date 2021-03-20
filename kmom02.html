@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang=sv>
+    <head>
+        <meta charset=utf-8>
+        <title>kmom02</title>
+        <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Noto+Serif" rel=stylesheet>
+        <link rel=stylesheet href=style/style.css>
+    </head>
+    <body>
+        <header>
+            <nav class=nav-base>
+                <a href=index.html class=nav-link>Me</a>
+                <a href=redovisning.html class=nav-link>Redovisning</a>
+                <a href=kmom01.html class=nav-link>Kmom01</a>
+                <a href=kmom02.html class="nav-link selected">Kmom02</a>
+                <a href=kmom03.html class=nav-link>Kmom03</a>
+                <a href=kmom05.html class=nav-link>Kmom04-05</a>
+            </nav>
+        </header>
+        <article>
+            <div class=article-div>
+                <h1>kmom02</h1>
+                <div>
+                    FPS: <span id=fps></span>
+                </div>
+                <canvas id=canvas1 width=700 height=500></canvas>
+                <p>
+                    <input id=play type=button value="Play"/>
+                    <input id=pause type=button value="Pause"/>
+                    <input id=add type=button value="Add triangle"/>
+                    Speed: <input id=speed type=range step=0.01 min=0.01 max=10.0 value="1.0"/>
+                    <input id=addNum type=number value=0 min="0"/>
+                    <input id=addNumButton type=button value="Add"/>
+                </p>
+            </div>
+        </article>
+        <script id=vertexShader type=x-shader/x-vertex>
+            attribute vec4 a_Position;
+    uniform mat4 u_ModelMat4;
+    void main() {
+        gl_Position = u_ModelMat4 * a_Position;
+    }
+        </script>
+        <script id=fragmentShader type=x-shader/x-fragment>
+            precision mediump float;
+    uniform vec4 u_FragColor;
+    void main() {
+        gl_FragColor = u_FragColor;
+    }
+        </script>
+        <script type=text/javascript src=lib/webgl-utils.js></script>
+        <script type=text/javascript src=js/kmom02.js></script>
+    </body>
+</html>

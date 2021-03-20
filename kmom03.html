@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang=sv>
+    <head>
+        <meta charset=utf-8>
+        <title>kmom03</title>
+        <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Noto+Serif" rel=stylesheet>
+        <link rel=stylesheet href=style/style.css>
+        <link rel=stylesheet href=kmom03/style.css>
+    </head>
+    <body>
+        <header>
+            <nav class=nav-base>
+                <a href=index.html class=nav-link>Me</a>
+                <a href=redovisning.html class=nav-link>Redovisning</a>
+                <a href=kmom01.html class=nav-link>Kmom01</a>
+                <a href=kmom02.html class=nav-link>Kmom02</a>
+                <a href=kmom03.html class="nav-link selected">Kmom03</a>
+                <a href=kmom05.html class=nav-link>Kmom04-05</a>
+            </nav>
+        </header>
+        <article>
+            <div class=article-div>
+                <h1>kmom03</h1>
+                <div class=canvasContainer>
+                    <canvas id=canvas width=800 height=500></canvas>
+                    <canvas id=text width=800 height=500></canvas>
+                </div>
+                <p>För att navigera tryck med musen på canvasen. Kameran styrs med WASD och musen. Färdas snabbare genom att hålla ner SHIFT och zooma genom att hålla ner CTRL.</p>
+                <input id=startStop type=button value=Pause style="width:80px"/>
+                Speed: <input id=speed type=range step=0.01 min=0.01 max=5.0 value="1.0"/>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>FOV</td>
+                        <td>Near</td>
+                        <td>Far</td>
+                    </tr>
+                    <tr>
+                        <td>Perspective</td>
+                        <td>
+                            <input id=fov name=fov type=number value="45"/>
+                        </td>
+                        <td>
+                            <input id=near name=near type=number value="0.1"/>
+                        </td>
+                        <td>
+                            <input id=far name=far type=number value="100.0"/>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>x</th>
+                        <th>y</th>
+                        <th>z</th>
+                    </tr>
+                    <tr>
+                        <td>Camera position</td>
+                        <td>
+                            <input id=cameraX name=cameraX type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=cameraY name=cameraY type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=cameraZ name=cameraZ type=number value="0"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Camera direction</td>
+                        <td>
+                            <input id=dirX name=dirX type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=dirY name=dirY type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=dirZ name=dirZ type=number value="0"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Up vector</td>
+                        <td>
+                            <input id=upX name=upX type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=upY name=upY type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=upZ name=upZ type=number value="0"/>
+                        </td>
+                    </tr>
+                </table>
+                <input id=update type=button value="Update"/>
+            </div>
+        </article>
+        <script id=vertexShader type=x-shader/x-vertex>
+            attribute vec4 a_position;
+        attribute vec2 a_uv;
+        uniform mat4 u_vp;
+        uniform mat4 u_model;
+
+        varying vec2 v_uv;
+
+        void main() {
+            gl_Position = u_vp * u_model * a_position;
+            v_uv = a_uv;
+        }
+        </script>
+        <script id=fragmentShader type=x-shader/x-fragment>
+            precision mediump float;
+        uniform vec4 u_tint;
+        uniform sampler2D u_firstTex;
+        uniform sampler2D u_secondTex;
+        uniform sampler2D u_maskTex;
+
+        uniform float u_weight;
+
+        varying vec2 v_uv;
+
+        void main() {
+            vec4 colorA = texture2D(u_firstTex, v_uv);
+            vec4 colorB = texture2D(u_secondTex, v_uv);
+            float mask = texture2D(u_maskTex, v_uv).r;
+
+            float t = 1.0 - step(mask, u_weight);
+            vec4 color = vec4(mix(colorA, colorB, t).rgb, 1.0);
+
+            gl_FragColor = min(color * u_tint, vec4(1.0, 1.0, 1.0, 1.0));
+        }
+        </script>
+        <script type=text/javascript src=lib/cuon-matrix.js></script>
+        <script type=text/javascript src=lib/webgl-utils.js></script>
+        <script type=text/javascript src=kmom03/vectorUtils.js></script>
+        <script type=text/javascript src=kmom03/camera.js></script>
+        <script type=text/javascript src=kmom03/entity.js></script>
+        <script type=text/javascript src=kmom03/model.js></script>
+        <script type=text/javascript src=kmom03/shader.js></script>
+        <script type=text/javascript src=kmom03/world.js></script>
+        <script type=text/javascript src=kmom03/texture.js></script>
+        <script type=text/javascript src=kmom03/controlPanel.js></script>
+        <script type=text/javascript src=kmom03/input.js></script>
+        <script type=text/javascript src=kmom03/main.js></script>
+    </body>
+</html>

@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang=sv>
+    <head>
+        <meta charset=utf-8>
+        <title>kmom03</title>
+        <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Noto+Serif" rel=stylesheet>
+        <link rel=stylesheet href=style/style.css>
+        <link rel=stylesheet href=kmom05/Code/style.css>
+    </head>
+    <body>
+        <header>
+            <nav class=nav-base>
+                <a href=index.html class=nav-link>Me</a>
+                <a href=redovisning.html class=nav-link>Redovisning</a>
+                <a href=kmom01.html class=nav-link>Kmom01</a>
+                <a href=kmom02.html class=nav-link>Kmom02</a>
+                <a href=kmom03.html class=nav-link>Kmom03</a>
+                <a href=kmom05.html class="nav-link selected">Kmom04-05</a>
+            </nav>
+        </header>
+        <article>
+            <div class=article-div>
+                <h1>Kmom04-05</h1>
+                <div class=canvasContainer>
+                    <canvas id=canvas width=800 height=500></canvas>
+                    <canvas id=text width=800 height=500></canvas>
+                </div>
+                <p>För att navigera tryck med musen på canvasen. Kameran styrs med WASD och musen. Färdas snabbare genom att hålla ner SHIFT och zooma genom att hålla ner CTRL.</p>
+                <table>
+                    <input id=update type=button value="Update"/>
+                </table>
+                <br>
+                <h2>Mode</h2>
+                <table>
+                    <tr>
+                        <td>Switch render mode: </td>
+                        <td>
+                            <select id=selectRenderingMode>
+                                <option class=renderingModeOption value=Raymarching>Raymarching</option>
+                                <option class=renderingModeOption value=MarchingCubes>Marching Cubes</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <h2>Animation</h2>
+                <table>
+                    <tr>
+                        <td>
+                            <input id=startStop type=button value=Pause style="width:80px"/>
+                        </td>
+                        <td>
+                            <input id=addMetaball type=button value="Add Metaball"/>
+                        </td>
+                        <td>
+                            <input id=removeMetaball type=button value="Remove Metaball"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Threshold: </td>
+                        <td>
+                            <input id=threshold type=range step=0.01 min=0.01 max=1.0 value="0.5"/>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>Speed:</td>
+                        <td>
+                            <input id=speed type=range step=0.01 min=0.01 max=5.0 value="1.0"/>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <div id=review-renderingMode></div>
+                <div id=hidden-renderingMode>
+                    <div>
+                        <h2>Raytracing</h2>
+                        <table>
+                            <tr>
+                                <td>Displacement:</td>
+                                <td>
+                                    <input id=displacement type=button value=On style="width:50px"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Show bounding spheres: </td>
+                                <td>
+                                    <input id=showBoundingSpheres type=button value=On style="Width:50px"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h2>Marching Cubes</h2>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input id=flatShading type=button value="Flat shading" style="width:120px"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Resulotion:</td>
+                                <td>
+                                    <input id=resolution type=range step=0.01 min=0.1 max=1.0 value="0.3"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <h2>World</h2>
+                <table>
+                    <tr>
+                        <td>Scalar field dim:</td>
+                        <td>
+                            <input id=scalarFieldWidth name=sfw type=number value="11"/>
+                        </td>
+                        <td>
+                            <input id=scalarFieldHeight name=sfh type=number value="11"/>
+                        </td>
+                        <td>
+                            <input id=scalarFieldDepth name=sfd type=number value="11"/>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <h2>Camera</h2>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>FOV</td>
+                        <td>Near</td>
+                        <td>Far</td>
+                    </tr>
+                    <tr>
+                        <td>Perspective:</td>
+                        <td>
+                            <input id=fov name=fov type=number value="45"/>
+                        </td>
+                        <td>
+                            <input id=near name=near type=number value="0.1"/>
+                        </td>
+                        <td>
+                            <input id=far name=far type=number value="100.0"/>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>x</th>
+                        <th>y</th>
+                        <th>z</th>
+                    </tr>
+                    <tr>
+                        <td>Camera position:</td>
+                        <td>
+                            <input id=cameraX name=cameraX type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=cameraY name=cameraY type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=cameraZ name=cameraZ type=number value="0"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Camera direction:</td>
+                        <td>
+                            <input id=dirX name=dirX type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=dirY name=dirY type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=dirZ name=dirZ type=number value="0"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Up vector:</td>
+                        <td>
+                            <input id=upX name=upX type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=upY name=upY type=number value="0"/>
+                        </td>
+                        <td>
+                            <input id=upZ name=upZ type=number value="0"/>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+            </div>
+        </article>
+        <script id=vertexShader type=x-shader/x-vertex>
+            attribute vec4 a_position;
+        attribute vec2 a_uv;
+        uniform mat4 u_vp;
+        uniform mat4 u_model;
+
+        varying vec2 frag_uv;
+
+        void main() {
+            gl_Position = u_vp * u_model * a_position;
+            frag_uv = a_uv;
+        }
+        </script>
+        <script id=fragmentShader type=x-shader/x-fragment>
+            precision mediump float;
+        uniform vec4 u_tint;
+
+        varying vec2 frag_uv;
+
+        void main() {
+            vec4 color = vec4(frag_uv.x, frag_uv.y, 0.0, 0.0) * 0.001;
+            gl_FragColor = min(color + u_tint, vec4(1.0, 1.0, 1.0, 1.0));
+        }
+        </script>
+        <script id=vertexShader2 type=x-shader/x-vertex>
+            attribute vec3 a_position;
+        attribute vec3 a_normal;
+        attribute vec3 a_color;
+        uniform mat4 u_vp;
+
+        varying vec3 frag_normal;
+        varying vec3 frag_color;
+
+        void main() {
+            gl_Position = u_vp * vec4(a_position, 1.0);
+            frag_normal = a_normal;
+            frag_color = a_color;
+        }
+        </script>
+        <script id=fragmentShader2 type=x-shader/x-fragment>
+            precision mediump float;
+
+        varying vec3 frag_normal;
+        varying vec3 frag_color;
+
+        uniform vec3 u_camDir;
+
+        void main() {
+            vec3 color = frag_color * dot(-u_camDir, frag_normal);
+            gl_FragColor = vec4(min(color, 1.0), 1.0);
+        }
+        </script>
+        <script id=vertexShaderRaytracing type=x-shader/x-vertex>
+            attribute vec3 a_position;
+        attribute vec2 a_uv;
+
+        varying vec2 frag_uv;
+        
+        void main() {
+            gl_Position = vec4(a_position, 1.0);
+            frag_uv = a_uv;
+        }
+        </script>
+        <script id=fragmentShaderRaytracing type=x-shader/x-fragment>
+            precision mediump float;
+
+        varying vec2 frag_uv;
+
+        // Vectors from camera center to its corners 
+        uniform vec3 cbl;
+        uniform vec3 cbr;
+        uniform vec3 ctl;
+        uniform vec3 ctr;
+
+        uniform float shouldDisplace;
+        uniform float showBoundingSpheres;
+        uniform float threshold;
+
+        const float BOUNDING_SPHERE_FACTOR = 2.0;
+
+        uniform vec3 camPos;
+        const vec2 camSize = vec2(800.0, 500.0);
+        const int MAX_NUM_METABALLS = 30;
+
+        const float MAX_DISTANCE = 100.0;
+        const float EPSILON = 0.0001;
+        
+        struct Metaball
+        {
+            vec3 position;
+            vec3 color;
+            float radius;
+        };
+        uniform Metaball metaballs[MAX_NUM_METABALLS];
+        uniform float numMetaballs;
+        
+        vec3 rayMarchingSDF(in vec3 dir, in vec3 forward);
+        bool sphereRayTest(in vec3 origin, in vec3 ray, in vec3 center, in float radius, out float t1, out float t2);
+        float falloffFunc(in float x);
+        vec4 map(in vec3 pos, in vec3 bg);
+
+        void main() {
+            vec3 color = vec3(0.1);
+            
+            float ratio = camSize.y/camSize.x;
+
+            vec3 forward = normalize(cbr+cbl+ctl+ctr);
+
+            vec3 dir = mix(mix(cbl, cbr, frag_uv.x), mix(ctl, ctr, frag_uv.x), frag_uv.y);
+            dir = normalize(dir);
+            
+            color = rayMarchingSDF(dir, forward);
+
+            gl_FragColor = vec4(min(color, 1.0), 1.0);
+        }
+        
+        float foundBoundingSphere(in vec3 dir)
+        {
+            float tmp1, tmp2;
+            float t = MAX_DISTANCE;
+            for (int i = 0; i < MAX_NUM_METABALLS; i++) {
+                if (float(i) < numMetaballs) {
+                    // Get the minimum distance of intersection of the bounding spheres and the ray.
+                    if (sphereRayTest(camPos, dir, metaballs[i].position, metaballs[i].radius*BOUNDING_SPHERE_FACTOR, tmp1, tmp2)) {
+                        float a = step(0.0, tmp1); // 0.0 if tmp1 < 0.0 else 1.0
+                        float tmp12 = a*tmp1 + (1.0 - a)*tmp2;
+                        t = min(t, tmp12);
+                    }
+                }
+            }
+            return t;
+        }
+
+        vec4 march(inout float t, in vec3 origin, in vec3 dir, in vec3 color)
+        {
+            vec4 mapInfo = vec4(0.0, 0.0, 0.0, 0.1);
+            for (int i = 0; i < 2000; i++)
+            {
+                if (mapInfo.w < EPSILON || mapInfo.w > MAX_DISTANCE) return mapInfo;
+                t += mapInfo.w;
+                mapInfo = map(origin + dir*t, color);
+            } 
+            return mapInfo;
+        }
+
+        vec3 rayMarchingSDF(in vec3 dir, in vec3 forward)
+        {
+            float showBoundingSpheresStep = step(0.5, showBoundingSpheres);
+            vec3 color = vec3(showBoundingSpheresStep + (1.0-showBoundingSpheresStep)*0.1);
+
+            float t = foundBoundingSphere(dir);
+            // Hit bounding sphere
+            vec4 mapInfo = vec4(0.0);
+            if (t < MAX_DISTANCE && t > EPSILON) {
+                mapInfo = march(t, camPos, dir, color);
+            } else {
+                mapInfo.w = MAX_DISTANCE;
+                if (showBoundingSpheres > 0.5) {
+                    color = vec3(0.1);
+                }
+            }
+            
+            if (mapInfo.w < MAX_DISTANCE) {
+                vec3 p = camPos + dir*t;
+                
+                vec3 normal = vec3(0.0, EPSILON, 0.0);
+                for (int i = 0; i < MAX_NUM_METABALLS; i++) {
+                    if(float(i) < numMetaballs) {
+                        vec3 mp = p - metaballs[i].position;
+                        float r = metaballs[i].radius*BOUNDING_SPHERE_FACTOR;
+                        float val = r*r/dot(mp, mp);
+                        normal += normalize(mp) * val;
+                    }
+                }
+                normal = normalize(normal);
+                
+                const vec3 lightPos = vec3(10.0, 20.0, 5.0);
+                vec3 pl = normalize(lightPos-p);
+                vec3 r = normalize(reflect(pl, normal));
+                float s = 20.0;
+                float spec = pow(max(dot(r, forward), 0.0), s);
+                color = mapInfo.xyz * max(dot(pl, normal), 0.2) + vec3(1.0, 1.0, 1.0)*spec;
+            }
+
+            return color;
+        }
+
+        bool sphereRayTest(in vec3 origin, in vec3 ray, in vec3 center, in float radius, out float t1, out float t2) {
+            vec3 oc = origin-center;
+            if (dot(ray, -oc) < 0.0) {
+                return false;
+            }
+            
+            float a = 2.0*dot(ray, oc);
+            float b = dot(origin, origin) + dot(center, center) - 2.0*dot(origin, center) - radius*radius;
+            float p = a/2.0;
+            float q = p*p - b;
+            
+            if (q < 0.0) {
+                return false;
+            }
+
+            float d = sqrt(q);
+            t1 = -p-d;
+            t2 = -p+d;
+            if (t1 > 0.0 || t2 > 0.0) {
+                return true;
+            }
+            return false;
+        }
+
+        float falloffFunc(in float x)
+        {
+            float y = 1.0 - x*x;
+            return y*y*y;
+        }
+
+        float displace(float x, in vec3 p, float s)
+        {
+            return clamp(-(sin(s*p.x)*sin(s*p.y)*sin(s*p.z)+1.0)*0.15, -x, 0.0);
+        }
+
+        vec4 map(in vec3 pos, in vec3 bg) {
+            float dmin = 100000.0;
+            float inside = -1.0;
+            float h = 0.0;
+            vec3 color = vec3(0.0);
+            float v = 0.0;
+            for (int i = 0; i < MAX_NUM_METABALLS; i++) {
+                if(float(i) < numMetaballs) {
+                    float r = metaballs[i].radius*BOUNDING_SPHERE_FACTOR;
+                    vec3 mp = metaballs[i].position;
+                    vec3 dmv = mp - pos;
+                    float dm = length(dmv);
+
+                    if (dm < r)
+                    {
+                        inside = 1.0;
+                        float x = dm/r;
+                        float val = falloffFunc(x); // 0 on the edge, 1 in center.
+
+                        float dis = displace(val, pos, 2.0)*step(0.2, shouldDisplace);
+
+                        v += clamp((val + dis), 0.0, 1.0);
+                        color += metaballs[i].color * val;
+                    }
+                    else
+                    {
+                        dmin = min(dmin, dm-r);
+                    }
+                }
+            }
+            color /= v;
+            dmin += EPSILON;
+
+            if (inside > 0.0)
+            {
+                dmin = threshold - v;
+            }
+
+            return vec4(color, dmin);
+        }
+        </script>
+        <script type=text/javascript src=lib/cuon-matrix.js></script>
+        <script type=text/javascript src=lib/webgl-utils.js></script>
+        <script type=text/javascript src=kmom05/Code/vectorUtils.js></script>
+        <script type=text/javascript src=kmom05/Code/camera.js></script>
+        <script type=text/javascript src=kmom05/Code/entity.js></script>
+        <script type=text/javascript src=kmom05/Code/model.js></script>
+        <script type=text/javascript src=kmom05/Code/shader.js></script>
+        <script type=text/javascript src=kmom05/Code/world.js></script>
+        <script type=text/javascript src=kmom05/Code/texture.js></script>
+        <script type=text/javascript src=kmom05/Code/controlPanel.js></script>
+        <script type=text/javascript src=kmom05/Code/input.js></script>
+        <script type=text/javascript src=kmom05/Code/worldRaytracer.js></script>
+        <script type=text/javascript src=kmom05/Code/Metaballs/poligoniser.js></script>
+        <script type=text/javascript src=kmom05/Code/Metaballs/metaball.js></script>
+        <script type=text/javascript src=kmom05/Code/Metaballs/worldUtils.js></script>
+        <script type=text/javascript src=kmom05/Code/Metaballs/isoSurface.js></script>
+        <script type=text/javascript src=kmom05/Code/main.js></script>
+    </body>
+</html>
