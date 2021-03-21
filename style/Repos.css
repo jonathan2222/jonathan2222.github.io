@@ -1,0 +1,15 @@
+.center {
+    padding: 0;
+    text-align: center;
+}
+
+.cleanUl {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+}
+
+.hoverLI {
+    position: relative;
+    transform: scale(1.1);
+}
