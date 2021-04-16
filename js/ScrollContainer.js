@@ -14,13 +14,17 @@ window.onload = function() {
     var elem = document.getElementsByClassName("home")[0];
     elem.scrollIntoView();
     
-    var navLinks = document.getElementsByClassName("nav-links");
-    for(var i = 0; i < navLinks.length; i++)
-    {
+    var preSelectedNavLink = null;
+    var navLinks = document.getElementsByClassName("nav-link");
+    for(var i = 0; i < navLinks.length; i++) {
         var link = navLinks[i];
+        if(link.classList.contains("active")) {
+            preSelectedNavLink = link;
+        }
+
         link.onclick = function() {
             var str = this.className;
-            console.log("Test");
+            console.log("TODO: Scroll to this page: " + str);
         };
     }
 
@@ -32,7 +36,12 @@ window.onload = function() {
             var sections = document.getElementsByTagName("section");
             for(let section of sections) {
                 if(isElementInViewport(section)) {
-                    console.log("Changed! to " + section.className);
+                    var l = section.className.split('-');
+                    var index = l[l.length-1];
+                    var navLink = document.getElementsByClassName("li-link-" + index)[0];
+                    preSelectedNavLink.classList.remove("active");
+                    navLink.firstChild.classList.add("active");
+                    preSelectedNavLink = navLink.firstChild;
                 } 
             }
         }, 100);
