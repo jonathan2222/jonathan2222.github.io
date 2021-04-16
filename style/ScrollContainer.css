@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0px;
+}
+
+.scroll-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scroll-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Other styles */
+section {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    scroll-padding: 0 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkorchid;
+    text-align: center;
+}
+
+section:nth-child(2n) {
+    background-color: rgb(33, 65, 61);
+}
+
+section:nth-child(3n) {
+    background-color: tomato;
+}
+
+section.is-visible h2 {
+    opacity: 1;
+}

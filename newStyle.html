@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Jonathan Åleskog</title>
+        <meta name="description" content="My Portfolio"/> <!-- Will Show a description when searching in google -->
+        <meta name="robots" content="index, follow"> <!-- Let the google robots follow each link and use the whole page when indexing -->
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Responsive-->
+        <!--<link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Noto+Serif" rel=stylesheet>-->
+        <link rel=stylesheet href=style/NewStyle.css>
+        <link rel=stylesheet href=style/ScrollContainer.css>
+    </head>
+    <body>
+        <header>
+            <div class = "heading">
+                <h1 class = "name">Jonathan Åleskog</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li class="li-link-2"><a class="nav-link" href="#Projects">Projects</a></li>
+                    <li class="li-link-1"><a class="nav-link active" href="#Home">Home</a></li>
+                    <li class="li-link-3"><a class="nav-link" href="#Design">Design</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <!-- scroll-snapping from https://24ways.org/2019/beautiful-scrolling-experiences-without-libraries/ -->
+            <div class="scroll-container">
+                <section class="sec-1">
+                    <div include-html="NewStyle/Test1.html"></div>
+                </section>
+                <section class = "home sec-2">
+                    <div include-html="NewStyle/Home.html"></div>
+                </section>
+                <section class="sec-3">
+                    <div include-html="NewStyle/Test2.html"></div>
+                </section>
+            </div>
+
+            <script type=text/javascript src=js/Include.js></script>
+            <script type=text/javascript src=js/ScrollContainer.js></script>
+            <script>
+                includeHTML();
+            </script>
+        </main>
+    </body>
+</html>
