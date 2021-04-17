@@ -39,12 +39,8 @@ window.onload = function() {
         };
     }
 
-    var timer = null;
     addEventListener("scroll", function() {
-        clearTimeout(timer);
-        // Reset timer
-        timer = setTimeout(function(){
-            var sections = document.getElementsByTagName("section");
+        var sections = document.getElementsByTagName("section");
             for(let section of sections) {
                 if(isElementInViewport(section)) {
                     var l = section.className.split('-');
@@ -56,10 +52,11 @@ window.onload = function() {
                         preSelectedNavLink.classList.remove("active");
                         navLink.firstChild.classList.add("active");
                         preSelectedNavLink = navLink.firstChild;
-                        focus(section);
+                        // Do not focus to the top when when sliding
+                        //focus(section);
+                        //console.log(section.className);
                     }
                 } 
             }
-        }, 100);
     }, true);
 };
