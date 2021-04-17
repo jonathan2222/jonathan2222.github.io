@@ -33,17 +33,3 @@ section {
     overflow-y: hidden;
     block-size:fit-content;
 }
-
-/*
-section:nth-child(2n) {
-    background-color: rgb(33, 65, 61);
-}
-
-section:nth-child(3n) {
-    background-color: tomato;
-}
-
-section.is-visible h2 {
-    opacity: 1;
-}
-*/
