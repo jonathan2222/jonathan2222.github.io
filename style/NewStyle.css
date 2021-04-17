@@ -23,7 +23,6 @@ h1.name {
     width: fit-content;
     margin-left: 50%;
     transform: translate(-50%, 0%);
-    border-bottom: 5px solid #484d47;
 }
 
 nav {
