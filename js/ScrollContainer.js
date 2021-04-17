@@ -51,7 +51,7 @@ window.onload = function() {
     var homeElem = document.getElementsByClassName("home")[0];
     focus(homeElem);
     var previousSection = { obj: homeElem, f: 1.0 };
-
+    
     var preSelectedNavLink = null;
     var navLinks = document.getElementsByClassName("nav-link");
     for(var i = 0; i < navLinks.length; i++) {
@@ -74,7 +74,6 @@ window.onload = function() {
     
     addEventListener("scroll", function() {
         var sections = document.getElementsByTagName("section");
-
         for(let section of sections) {
             var factor = getElementInViewportFactor(section);
             if(section != previousSection.obj && factor > 0.05)

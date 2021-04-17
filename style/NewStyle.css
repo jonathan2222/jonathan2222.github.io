@@ -9,6 +9,10 @@ body {
     background-color: #252525;
 }
 
+header {
+    height: 200vh;
+}
+
 .heading {
     position: absolute;
     top: 1vh;
@@ -25,10 +29,17 @@ h1.name {
     transform: translate(-50%, 0%);
 }
 
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0; /* Needed for sticky to work*/
+}
+
 nav {
     position: absolute;
     width: 100%;
-    top: 10vh;
+    top: 0;
+    padding: 8vh 5vw 1vh 5vw;
     z-index: 1;
 }
 
@@ -44,12 +55,13 @@ nav {
     text-decoration: none;
     font-size: 300%;
     background-color: #191a19;
-    padding: 100vw 5vw 1vh 5vw;
+    padding: 100vh 5vw 1vh 5vw;
     text-align: center;
     cursor: pointer;
 }
 
 main {
+    height: 100%;
     position: absolute;
     width: 100%;
     top: 20vh;
