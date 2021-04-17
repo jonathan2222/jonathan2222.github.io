@@ -19,10 +19,12 @@ body {
 
 h1.name {
     text-align: center;
+    white-space: nowrap;
     width: fit-content;
     margin-left: 50%;
     transform: translate(-50%, 0%);
-    border-bottom: 5px solid #484d47
+    border-bottom: 5px solid #484d47;
+    background-color: red;
 }
 
 nav {
@@ -51,7 +53,7 @@ nav {
 main {
     position: absolute;
     width: 100%;
-    top:10vw;
+    top:20vh;
     text-align: center;
 }
 
@@ -63,8 +65,20 @@ li a:hover {
     color:#f0faf0;
 }
 
-@media screen and (max-width: 710px) {
+@media screen and (max-width: 1500px) {
     body {
         width:100%
+    }
+    .heading {
+        font-size: 200%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    body {
+        width:100%
+    }
+    .heading {
+        font-size: 150%;
     }
 }

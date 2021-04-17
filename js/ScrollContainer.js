@@ -10,9 +10,15 @@ function isElementInViewport (el) {
     );
 }
 
+function focus(el) {
+    el.scrollIntoView();
+    window.scrollTo(0, 0);
+    console.log("Focusing on " + el.className);
+}
+
 window.onload = function() {
     var elem = document.getElementsByClassName("home")[0];
-    elem.scrollIntoView();
+    focus(elem);
     
     var preSelectedNavLink = null;
     var navLinks = document.getElementsByClassName("nav-link");
@@ -23,7 +29,6 @@ window.onload = function() {
         }
 
         link.onclick = function() {
-            console.log(this.parentElement.className);
             var l = this.parentElement.className.split('-');
             var index = l[l.length-1];
             var sections = document.getElementsByTagName("section");
@@ -31,7 +36,7 @@ window.onload = function() {
                 l = section.className.split('-');
                 var secIndex = l[l.length-1];
                 if(index == secIndex)
-                    section.scrollIntoView();
+                    focus(section);
             }
         };
     }
