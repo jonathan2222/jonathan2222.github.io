@@ -1,5 +1,4 @@
 function isElementInViewport (el) {
-    //console.log(el);
     var rect = el.getBoundingClientRect();
 
     return (
@@ -27,7 +26,6 @@ window.onload = function() {
         if(link.classList.contains("active")) {
             preSelectedNavLink = link;
         }
-
         link.onclick = function() {
             var l = this.parentElement.className.split('-');
             var index = l[l.length-1];

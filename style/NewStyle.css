@@ -24,7 +24,6 @@ h1.name {
     margin-left: 50%;
     transform: translate(-50%, 0%);
     border-bottom: 5px solid #484d47;
-    background-color: red;
 }
 
 nav {
@@ -39,7 +38,7 @@ nav {
     align-items: center;
     justify-content: space-around;
     list-style: none;
-    cursor: pointer;
+    outline:none;
 }
 
 .nav-link {
@@ -48,6 +47,7 @@ nav {
     background-color: #191a19;
     padding: 100vw 5vw 1vh 5vw;
     text-align: center;
+    cursor: pointer;
 }
 
 main {
@@ -65,7 +65,7 @@ li a:hover {
     color:#f0faf0;
 }
 
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1920px) {
     .heading {
         font-size: 200%;
     }

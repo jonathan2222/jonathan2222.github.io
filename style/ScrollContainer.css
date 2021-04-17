@@ -22,7 +22,6 @@
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Other styles */
 section {
     flex: 0 0 100%;
     scroll-snap-align: center;
@@ -31,10 +30,11 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: darkorchid;
+    background-color: transparent;
     text-align: center;
 }
 
+/*
 section:nth-child(2n) {
     background-color: rgb(33, 65, 61);
 }
@@ -46,3 +46,4 @@ section:nth-child(3n) {
 section.is-visible h2 {
     opacity: 1;
 }
+*/
