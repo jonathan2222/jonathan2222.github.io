@@ -12,7 +12,7 @@ function isElementInViewport (el) {
 
 function focus(el) {
     el.scrollIntoView();
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 1);
     console.log("Focusing on " + el.className);
 }
 
@@ -52,9 +52,14 @@ window.onload = function() {
                     var l = section.className.split('-');
                     var index = l[l.length-1];
                     var navLink = document.getElementsByClassName("li-link-" + index)[0];
-                    preSelectedNavLink.classList.remove("active");
-                    navLink.firstChild.classList.add("active");
-                    preSelectedNavLink = navLink.firstChild;
+                    
+                    if(navLink.firstChild != preSelectedNavLink)
+                    {
+                        preSelectedNavLink.classList.remove("active");
+                        navLink.firstChild.classList.add("active");
+                        preSelectedNavLink = navLink.firstChild;
+                        focus(section);
+                    }
                 } 
             }
         }, 100);

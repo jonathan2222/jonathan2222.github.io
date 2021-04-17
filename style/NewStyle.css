@@ -66,19 +66,19 @@ li a:hover {
 }
 
 @media screen and (max-width: 1500px) {
-    body {
-        width:100%
-    }
     .heading {
         font-size: 200%;
+    }
+    .nav-link {
+        font-size: 120%;
     }
 }
 
 @media screen and (max-width: 1000px) {
-    body {
-        width:100%
-    }
     .heading {
         font-size: 150%;
+    }
+    .nav-link {
+        font-size: 120%;
     }
 }
