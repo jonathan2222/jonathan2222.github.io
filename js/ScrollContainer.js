@@ -23,8 +23,16 @@ window.onload = function() {
         }
 
         link.onclick = function() {
-            var str = this.className;
-            console.log("TODO: Scroll to this page: " + str);
+            console.log(this.parentElement.className);
+            var l = this.parentElement.className.split('-');
+            var index = l[l.length-1];
+            var sections = document.getElementsByTagName("section");
+            for(let section of sections) {
+                l = section.className.split('-');
+                var secIndex = l[l.length-1];
+                if(index == secIndex)
+                    section.scrollIntoView();
+            }
         };
     }
 
