@@ -1,3 +1,7 @@
+var g_ActiveSection = null;
+var currentMainHeight = 0;
+var currentConHeight = 0;
+
 function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
 
@@ -32,8 +36,20 @@ function getElementInViewportFactor(el) {
 
 function focus(el) {
     el.scrollIntoView();
-    window.scrollTo(0, 1);
+    window.scrollTo(0, 0);
+    setSection(el, true);
     console.log("Focusing on " + el.className);
+}
+
+function setSection(section, applyToMain) {
+    if(g_ActiveSection != section) {
+        console.log("Setting section to " + getName(section));
+        g_ActiveSection = section;
+        applyHeightToHeader();
+    }
+
+    if(applyToMain)
+        applyHeightToScrollContainer();
 }
 
 function getLiLinkFromSection(section) {
@@ -45,6 +61,32 @@ function getLiLinkFromSection(section) {
 function getName(elem) {
     var l = elem.classList;
     return l[l.length-1];
+}
+
+// Used for .sticky
+function applyHeightToHeader() {
+    var header = document.getElementsByTagName("header")[0];
+    var height = parseInt(g_ActiveSection.offsetHeight + g_ActiveSection.getBoundingClientRect().top);
+    header.style.height = height + "px";
+}
+
+function applyHeightToScrollContainer() {
+    var conHeight = parseInt(g_ActiveSection.offsetHeight);
+    var mainHeight = parseInt(g_ActiveSection.offsetHeight + g_ActiveSection.getBoundingClientRect().top);
+    
+    var heightClampedToWindowHeight = (window.innerHeight || document.documentElement.clientHeight);
+    heightClampedToWindowHeight = parseInt(heightClampedToWindowHeight-g_ActiveSection.getBoundingClientRect().top);
+    conHeight = Math.max(conHeight, heightClampedToWindowHeight);
+    mainHeight = Math.max(mainHeight, heightClampedToWindowHeight);
+    
+    if(currentMainHeight != mainHeight) {
+        var con = document.getElementsByClassName("scroll-container")[0];
+        var main = document.getElementsByTagName("main")[0];
+        con.style.height = conHeight + "px";
+        main.style.height = mainHeight + "px";
+        currentMainHeight = mainHeight;
+        currentConHeight = conHeight;
+    }
 }
 
 window.onload = function() {
@@ -71,7 +113,7 @@ window.onload = function() {
             }
         };
     }
-    
+
     addEventListener("scroll", function() {
         var sections = document.getElementsByTagName("section");
         for(let section of sections) {
@@ -83,6 +125,7 @@ window.onload = function() {
                 {
                     preSelectedNavLink.classList.remove("active");
                     navLink.firstChild.classList.add("active");
+                    setSection(section, true);
                     preSelectedNavLink = navLink.firstChild;
                 }
             }
@@ -96,6 +139,10 @@ window.onload = function() {
                     preSelectedNavLink.classList.remove("active");
                     navLink.firstChild.classList.add("active");
                     preSelectedNavLink = navLink.firstChild;
+                }
+
+                if(section != previousSection.obj) {
+                    focus(section);
                 }
                 previousSection.obj = section;
             }

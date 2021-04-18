@@ -9,10 +9,6 @@ body {
     background-color: #252525;
 }
 
-header {
-    height: 200vh;
-}
-
 .heading {
     position: absolute;
     top: 1vh;
@@ -61,7 +57,6 @@ nav {
 }
 
 main {
-    height: 100%;
     position: absolute;
     width: 100%;
     top: 20vh;
