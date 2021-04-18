@@ -1,6 +1,5 @@
 var g_ActiveSection = null;
 var currentMainHeight = 0;
-var currentConHeight = 0;
 
 function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
@@ -71,21 +70,19 @@ function applyHeightToHeader() {
 }
 
 function applyHeightToScrollContainer() {
-    var conHeight = parseInt(g_ActiveSection.offsetHeight);
-    var mainHeight = parseInt(g_ActiveSection.offsetHeight + g_ActiveSection.getBoundingClientRect().top);
+    var height = parseInt(g_ActiveSection.offsetHeight);
     
+    // Clamp to screen height if smaller.
     var heightClampedToWindowHeight = (window.innerHeight || document.documentElement.clientHeight);
     heightClampedToWindowHeight = parseInt(heightClampedToWindowHeight-g_ActiveSection.getBoundingClientRect().top);
-    conHeight = Math.max(conHeight, heightClampedToWindowHeight);
-    mainHeight = Math.max(mainHeight, heightClampedToWindowHeight);
+    height = Math.max(height, heightClampedToWindowHeight);
     
-    if(currentMainHeight != mainHeight) {
+    if(currentMainHeight != height) {
         var con = document.getElementsByClassName("scroll-container")[0];
         var main = document.getElementsByTagName("main")[0];
-        con.style.height = conHeight + "px";
-        main.style.height = mainHeight + "px";
-        currentMainHeight = mainHeight;
-        currentConHeight = conHeight;
+        con.style.height = height + "px";
+        main.style.height = height + "px";
+        currentMainHeight = height;
     }
 }
 
@@ -125,7 +122,7 @@ window.onload = function() {
                 {
                     preSelectedNavLink.classList.remove("active");
                     navLink.firstChild.classList.add("active");
-                    setSection(section, true);
+                    setSection(section, false);
                     preSelectedNavLink = navLink.firstChild;
                 }
             }
