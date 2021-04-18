@@ -42,7 +42,6 @@ function focus(el) {
 
 function setSection(section, applyToMain) {
     if(g_ActiveSection != section) {
-        console.log("Setting section to " + getName(section));
         g_ActiveSection = section;
         applyHeightToHeader();
     }
@@ -105,8 +104,14 @@ window.onload = function() {
             for(let section of sections) {
                 l = section.className.split('-');
                 var secIndex = l[l.length-1];
-                if(index == secIndex)
+                if(index == secIndex) {
+                    var navLink = getLiLinkFromSection(section)
+                    preSelectedNavLink.classList.remove("active");
+                    navLink.firstChild.classList.add("active");
+                    preSelectedNavLink = navLink.firstChild;
+                    previousSection.obj = section;
                     focus(section);
+                }
             }
         };
     }
